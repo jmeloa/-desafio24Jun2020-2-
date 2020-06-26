@@ -118,44 +118,70 @@ numero_cero(5)
 print "\n"
 print "\n"
 
-#este no logré terminarlo, pero lo subiré nuevamente la otra semana
-#saludos
 
 def navidad(numero)
-  #genero triangulo de arriba
-  #defino la mitad
-  if numero.odd?   
-      mitad=(numero+2)/2
-  else    
-      mitad=(numero+1)/2
-  end    
-      (mitad+1).times do |i|
-          (numero+2).times do |j|
-              #si es la primera o ultima fila
-              #even es par odd impar
-              if i==mitad
-                  print "*"  
-              elsif (i+j)==mitad || (j-i)==mitad
-                  print "*"
-              else
-                  print " "            
-              end   
-          end
-          print "\n"
-      end
-      
-      
-      for i in (mitad+1..numero+1)
-          (numero+2).times do |j|
-              if j==mitad
-                  print "*"  
-              end   
-          end 
-          print "\n"  
-      end    
-  
-  end
-  
-  navidad(5)
-  
-  
+    #genero triangulo de arriba
+    #defino la mitad
+numero=numero+2
+if numero.odd?
+    numero=numero+1
+end    
+mitad=(numero+1)/2
+print mitad
+print "\n"
+for fila in (1..mitad)
+    col=1
+    #print fila
+    #print "  "
+    #print col
+    #print "  "
+    
+    #print mitad-fila
+    ##print "   "
+    #print mitad+fila
+    #print "   "
+    c=1
+    while col<=numero ##&& mitad-fila>=0
+        
+        if col>mitad-fila && col<mitad+fila
+            if c.odd?
+                print "*"
+            else
+                print " "
+            end        
+            c=c+1
+        else
+            print " "
+        end        
+        col=col+1
+    end
+    print "\n"
+    
+end
+
+i=mitad+1
+#print i
+#print numero
+while (i<numero)
+    col=1
+    while col<=numero 
+        if col==mitad and i<numero-1
+            print "*"
+        end
+
+        #ultima fila
+        if i==numero-1 and col.odd?
+            print "*"
+        else    
+            print " "
+        end        
+        col=col+1
+        
+    end    
+        print "\n"
+        
+    i=i+1
+end    
+end 
+
+navidad(5)
